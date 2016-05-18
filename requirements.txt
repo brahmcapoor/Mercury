@@ -1,0 +1,15 @@
+appnope==0.1.0
+autopep8==1.2.2
+backports.shutil-get-terminal-size==1.0.0
+decorator==4.0.9
+gnureadline==6.3.3
+ipython==4.2.0
+ipython-genutils==0.1.0
+nltk==3.2.1
+numpy==1.11.0
+pep8==1.7.0
+pexpect==4.0.1
+pickleshare==0.7.2
+ptyprocess==0.5.1
+simplegeneric==0.8.1
+traitlets==4.2.1
