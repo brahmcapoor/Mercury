@@ -7,9 +7,14 @@ ipython==4.2.0
 ipython-genutils==0.1.0
 nltk==3.2.1
 numpy==1.11.0
+oauthlib==1.1.1
 pep8==1.7.0
 pexpect==4.0.1
 pickleshare==0.7.2
 ptyprocess==0.5.1
+requests==2.10.0
+requests-oauthlib==0.6.1
 simplegeneric==0.8.1
+six==1.10.0
 traitlets==4.2.1
+tweepy==3.5.0
