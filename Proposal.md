@@ -41,6 +41,9 @@ Also, we need to figure out a way to have the bot running continuously.
 9. *(Stretch)* Have the bot trawl synonyms of the words in the mention to understand what the user wants using nltk
 10. *(Stretch)* Build a custom synonym trawler
 11. *(Stretch)* If the bot doesn't understand the user's tweet, use the cleverbot API to make a clever response
+12. *(Stretch)* Have the bot occasionally post pictures of how it's feeling
+13. *(Stretch)* Give the bot a 'wakeup' and 'sleep' time to give the impression it actually sleeps at nightl Have these times change based on its mood.
+14. *(Stretch)* Time dependent tweets
 
 
 ###Estimated Timeline
@@ -58,6 +61,8 @@ Also, we need to figure out a way to have the bot running continuously.
 * Task 9 (2 hr) - Brahm 
 * Task 10 (2 hr) - Michael
 * Task 11 (1 hr) - both
+* Task 12 (1 hr) - both
+* Tasks 13 - 14 (2.5 hrs) - both
 
 
 ##Resources
