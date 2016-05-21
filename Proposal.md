@@ -4,7 +4,7 @@
 
 ##Overview
 
-We're going to make a twitter bot that starts each day by choosing a mood, and posts tweets over the course of the day that correspond to that mood. One day it might be happy, the next existential, the next angry. In addition, it'll change it's mood according to the content of tweets directed at it by other users. If another user tells the bot to cheer up, it'll change it's mood to happy. Point out it's a bot, on the other hand, and it'll start feeling existential.
+We're going to make a twitter bot that starts each day by choosing a mood, and posts tweets over the course of the day that correspond to that mood. One day it might be happy, the next existential, the next angry. In addition, it'll change its mood according to the content of tweets directed at it by other users. If another user tells the bot to cheer up, it'll change its mood to happy. Point out it's a bot, on the other hand, and it'll start feeling existential.
 
 ##Background
 
@@ -14,7 +14,7 @@ There isn't much more to say here, really. Both of us have enjoyed reading about
 
 ##Implementation Strategy
 
-Every 24 hours, the Bot will choose a random new mood from the collection of moods we give it. It'll then periodicially post tweets based on its mood.
+Every 24 hours, the Bot will choose a random new mood from the collection of moods we give it. It'll then periodically post tweets based on its mood.
 
 We're going to use [Markovify](https://github.com/jsvine/markovify) to generate Markov chains from a corpus. Markovify also includes a method that generates short sentences which are ideal for tweets. To generate a corpus for the Markov Chains, we're going to use GoodReads' collections of quotes. Some of these are:
 
@@ -42,7 +42,7 @@ Also, we need to figure out a way to have the bot running continuously.
 8. *(Stretch)* Build a custom synonym trawler
 10. *(Stretch)* If the bot doesn't understand the user's tweet, use the cleverbot API to make a clever response
 11. *(Stretch)* Have the bot occasionally post pictures of how it's feeling
-12. *(Stretch)* Give the bot a 'wakeup' and 'sleep' time to give the impression it actually sleeps at nightl Have these times change based on its mood.
+12. *(Stretch)* Give the bot a 'wakeup' and 'sleep' time to give the impression it actually sleeps at night. Have these times change based on its mood.
 13. *(Stretch)* Time dependent tweets
 
 
