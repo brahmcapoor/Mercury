@@ -18,13 +18,17 @@ Every 24 hours, the Bot will choose a random new mood from the collection of moo
 
 We're going to use [Markovify](https://github.com/jsvine/markovify) to generate Markov chains from a corpus. Markovify also includes a method that generates short sentences which are ideal for tweets. To generate a corpus for the Markov Chains, we're going to use GoodReads' collections of quotes. Some of these are:
 
+[Happy](https://www.goodreads.com/quotes/tag/happiness)
+[Existential](https://www.goodreads.com/quotes/tag/existentialism)
+[Contemptuous](https://www.goodreads.com/quotes/tag/contempt)
+
 We'll use [Requests](http://docs.python-requests.org/en/master/) and [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/) to parse these quotes and save them in separate .txt files based on which emotion they correspond to. Hopefully the Goodreads quotes will provide a large enough corpus, but if we need more text, it shouldn't be hard to find.
 
 We'll use the [Tweepy](https://github.com/tweepy/tweepy) library to handle the all the Twitter API stuff, which will primarily consist of posting tweets that the Markov Chain generates and retrieving and examining tweets that contain mentions of the bot's account. It includes a bunch of methods telling us whether a string is valid and so on, which we can use to do some basic checking.
 
-If we don't have that much time left once we've finished the basic functionality, we'll have a list of explicit commands that change the bot's mood. If we do have time, we'll have the bot check for emotional cues by looking at synonyms of the words that the user uses. [NLTK](http://www.nltk.org/) can help us do this, but if we have enough time, we might make a more custom synonym trawler. 
+If we don't have that much time left once we've finished the basic functionality, we'll have a list of explicit commands that change the bot's mood. If we do have time, we'll have the bot check for emotional cues by looking at synonyms of the words that the user uses. [NLTK](http://www.nltk.org/) can help us do this, but if we have enough time, we might make a more custom synonym trawler.
 
-Also, we need to figure out a way to have the bot running continuously. 
+Also, we need to figure out a way to have the bot running continuously.
 
 ##Tasks
 
@@ -49,18 +53,16 @@ Also, we need to figure out a way to have the bot running continuously.
 * Tasks 1 & 2 (30 minutes) - both
 * Task 3 (1 hr) - Brahm
 * Task 4 (30 minutes) - Michael
-* Task 5 (1 hr) - both
-* Task 6 (20 minutes) - both 
-* Task 7 & 8 (1.5 hr) - both
+* Task 5 & 6 (3 hrs) - Brahm
 
 **(Stretch)**
-* Task 9 (2 hr) - Brahm 
-* Task 10 (2 hr) - Michael
+* Task 7 (2 hr) - Brahm
+* Task 8 (2 hr) - Michael
+* Task 9 (1 hr) - both
+* Task 10 (1 hr) - both
 * Task 11 (1 hr) - both
-* Task 12 (1 hr) - both
-* Tasks 13 - 14 (2.5 hrs) - both
+* Tasks 12 - 13 (2.5 hrs) - both
 
 
 ##Resources
 We're basically just going to be using the APIs we talked about.
-
