@@ -1,4 +1,4 @@
-#MoodyBot
+#Mercury
 
 > Brahm Capoor and Michael Troute
 
