@@ -1,6 +1,7 @@
 appnope==0.1.0
 autopep8==1.2.2
 backports.shutil-get-terminal-size==1.0.0
+beautifulsoup4==4.4.1
 decorator==4.0.9
 gnureadline==6.3.3
 ipython==4.2.0
