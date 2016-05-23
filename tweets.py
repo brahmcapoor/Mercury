@@ -21,3 +21,6 @@ def postTweet(tweet):
 
 def checkTweet():
     pass
+    """
+    Conditions: length. Anything else?
+    """

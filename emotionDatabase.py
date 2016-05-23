@@ -13,6 +13,7 @@ def createHappy():
                 "html.parser")
 
             for notNeeded in soup(["script", "style", "span", "a"]):
+                # remove unnecessary html elements
                 notNeeded.extract()
 
             quotes = [
@@ -24,5 +25,6 @@ def createHappy():
                 text = q.find_all(text=True)
                 for line in text:
                     if line.strip() == "―" or line.strip() == ",":
+                        # remove quote attributions
                         continue
                     f.write(line.encode('utf-8'))
