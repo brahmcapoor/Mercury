@@ -27,4 +27,5 @@ def createHappy():
                     if line.strip() == "―" or line.strip() == ",":
                         # remove quote attributions
                         continue
-                    f.write(line.encode('utf-8'))
+                    f.write(line.strip().encode('utf-8'))
+                    f.write('\n'.encode('utf-8'))
