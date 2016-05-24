@@ -12,7 +12,14 @@ import markovify
 
 # emotionDatabase.createExistential()
 
+while True:
+    emotion = input("What emotion? ")
+    if emotion == "":
+        break
+    emotionDatabase.create_emotion_txt(emotion)
 
+
+"""
 def strip_non_ascii(string):
     ''' Returns the string without non ASCII characters'''
     stripped = (c for c in string if 0 < ord(c) < 127)
@@ -30,3 +37,4 @@ text_model = markovify.Text(text)
 sentence = text_model.make_short_sentence(140)
 
 print(sentence.encode('utf-8'))
+"""
