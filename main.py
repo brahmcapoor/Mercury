@@ -6,16 +6,22 @@ Currently just a testing harness for other modules
 import tweets
 import emotionDatabase
 import markovify
+import time
 
 moods = [
-    'happiness',
-    'existentialism',
-    'contempt',
-    'sadness',
-    'innovation',
-    'suspicion',
-    'disgust',
-    'surprise']
+    'happy',
+    'existential',
+    'contemptuous',
+    'sad',
+    'innovative',
+    'suspicious',
+    'disgusted',
+    'surprised',
+    'funny',
+    'inspirational',
+    'romantic',
+    'philosophical',
+    'wise']
 
 
 def generateDatabase():
@@ -36,7 +42,7 @@ def test_quote(mood):
 
     text_model = markovify.Text(text)
 
-    sentence = text_model.make_short_sentence(140)
+    sentence = text_model.make_short_sentence(130)
 
     return sentence.encode('utf-8')
 
@@ -46,9 +52,17 @@ def test_quotes():
         print(("{}: {}").format(mood, test_quote(mood)))
 
 
+def post_tweets(delay):
+    while(True):
+        for mood in moods:
+            tweets.postTweet(("{}: {}").format(mood, test_quote(mood)))
+        time.sleep(3600)
+
+
 def main():
     # generateDatabase()
     test_quotes()
+    # post_tweets(10)
 
 
 if __name__ == "__main__":
