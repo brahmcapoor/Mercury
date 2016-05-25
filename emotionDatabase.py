@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 
 
+def create_emotion_database(moods):
+    for mood in moods:
+        print(("Generating file for {}.").format(mood))
+        create_emotion_txt(mood)
+
+
 def create_emotion_txt(emotion):
     filename = ("emotions/{}.txt").format(emotion)
     with open(filename, 'wb') as f:
