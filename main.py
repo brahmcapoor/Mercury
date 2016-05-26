@@ -4,41 +4,20 @@
 Currently just a testing harness for other modules
 """
 import tweets
-import emotionDatabase
+import utils
+import moods
 import markovify
+from datetime import date, datetime
 import time
 
-moods = [
-    'happy',
-    'existential',
-    'contemptuous',
-    'sad',
-    'innovative',
-    'suspicious',
-    'disgusted',
-    'surprised',
-    'funny',
-    'inspirational',
-    'romantic',
-    'philosophical',
-    'wise']
 
-
-def generateDatabase():
-    emotionDatabase.create_emotion_database(moods)
-
-
-def strip_non_ascii(string):
-    stripped = (c for c in string if 0 < ord(c) < 127)
-    return ''.join(stripped)
-
-
-def test_quote(mood):
+def generate_tweet_text(mood):
+    mood = mood.strip()
     filename = ("emotions/{}.txt").format(mood)
     with open(filename, encoding='utf-8') as f:
         text = f.read()
 
-    text = strip_non_ascii(text)
+    text = utils.strip_non_ascii(text)
 
     text_model = markovify.Text(text)
 
@@ -48,21 +27,39 @@ def test_quote(mood):
 
 
 def test_quotes():
-    for mood in moods:
+    for mood in moods.moods:
         print(("{}: {}").format(mood, test_quote(mood)))
 
 
 def post_tweets(delay):
     while(True):
-        for mood in moods:
+        for mood in moods.moodList():
             tweets.postTweet(("{}: {}").format(mood, test_quote(mood)))
         time.sleep(3600)
 
 
+def reconstruct_date(date_string):
+    date = datetime.strptime(date_string, "%Y-%m-%d")
+    return date
+
+
 def main():
-    # generateDatabase()
-    test_quotes()
-    # post_tweets(10)
+    while(True):
+        with open('bot_state.txt', 'r+') as f:
+            olddate = reconstruct_date(f.readline().strip())
+            if date.today() > olddate.date():
+                f.seek(0)
+                f.write(str(date.today()))
+                f.write('\n')
+                emotion = moods.choose_random_mood()
+                f.write(emotion + "             ")
+                tweets.update_description(
+                    "I'm feeling {} today".format(emotion))
+            else:
+                emotion = f.readline()
+            text = generate_tweet_text(emotion)
+            tweets.post_tweet(text)
+        time.sleep(300)
 
 
 if __name__ == "__main__":
