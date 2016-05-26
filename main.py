@@ -59,7 +59,7 @@ def main():
                 emotion = f.readline()
             text = generate_tweet_text(emotion)
             tweets.post_tweet(text)
-        time.sleep(300)
+        time.sleep(1800)
 
 
 if __name__ == "__main__":
