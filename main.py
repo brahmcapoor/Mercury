@@ -6,6 +6,9 @@ import moods
 import markovify
 from datetime import date, datetime
 import time
+from random import choice
+from PyDictionary import PyDictionary
+dictionary = PyDictionary()
 
 
 def generate_tweet_text(mood):
@@ -18,7 +21,12 @@ def generate_tweet_text(mood):
 
     text_model = markovify.Text(text)
 
-    sentence = text_model.make_short_sentence(130)
+    sentence = text_model.make_short_sentence(120)
+
+    synonymset = dictionary.synonym(mood)
+    synonym = choice(synonymset)
+
+    sentence += " #{}".format(synonym)
 
     return sentence.encode('utf-8')
 
@@ -36,8 +44,9 @@ def main():
             tweets.update_description(
                 "I'm feeling {} today".format(emotion))
         text = generate_tweet_text(emotion)
-        tweets.post_tweet(text)
-        time.sleep(1800)
+        print(text)
+        # tweets.post_tweet(text)
+        # time.sleep(1800)
 
 if __name__ == "__main__":
     main()
