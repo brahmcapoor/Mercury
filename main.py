@@ -46,6 +46,5 @@ def main():
             tweets.post_tweet(text)
         time.sleep(1800)
 
-
 if __name__ == "__main__":
     main()
