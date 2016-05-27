@@ -1,9 +1,14 @@
 import tweepy
 import twitter_confidential
+import os
 
 
-auth = tweepy.OAuthHandler(**twitter_confidential.get_consumer_info())
-auth.set_access_token(**twitter_confidential.get_access_info())
+auth = tweepy.OAuthHandler(
+    os.environ.get('twitter_consumer_key'),
+    os.environ.get('twitter_consumer_secret'))
+auth.set_access_token(
+    os.environ.get('twitter_access_key'),
+    os.environ.get('twitter_access_secret'))
 api = tweepy.API(auth)
 
 

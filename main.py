@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-Currently just a testing harness for other modules
-"""
 import tweets
 import utils
 import moods
@@ -59,7 +56,7 @@ def main():
                 emotion = f.readline()
             text = generate_tweet_text(emotion)
             tweets.post_tweet(text)
-        time.sleep(1800)
+         time.sleep(1800)
 
 
 if __name__ == "__main__":
