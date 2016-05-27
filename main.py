@@ -44,9 +44,8 @@ def main():
             tweets.update_description(
                 "I'm feeling {} today".format(emotion))
         text = generate_tweet_text(emotion)
-        print(text)
-        # tweets.post_tweet(text)
-        # time.sleep(1800)
+        tweets.post_tweet(text)
+        time.sleep(1800)
 
 if __name__ == "__main__":
     main()
