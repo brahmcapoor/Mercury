@@ -23,29 +23,20 @@ def generate_tweet_text(mood):
     return sentence.encode('utf-8')
 
 
-def reconstruct_date(date_string):
-    date = datetime.strptime(date_string, "%Y-%m-%d")
-    return date
-
-
 def main():
+    emotion = "innovative"
+    olddate = date(2016, 1, 1)
     while(True):
-        with open('bot_state.txt', 'r+') as f:
-            olddate = reconstruct_date(f.readline().strip())
-            if date.today() > olddate.date():
-                f.seek(0)
-                f.write(str(date.today()))
-                f.write('\n')
-                emotion = moods.choose_random_mood()
-                f.write(emotion + "             ")
-                tweets.update_description(
-                    "I'm feeling {} today".format(emotion))
-            else:
-                emotion = f.readline()
-                tweets.update_description(
-                    "I'm feeling {} today".format(emotion))
-            text = generate_tweet_text(emotion)
-            tweets.post_tweet(text)
+        if date.today() > olddate:
+            olddate = date.today()
+            emotion = moods.choose_random_mood()
+            tweets.update_description(
+                "I'm feeling {} today".format(emotion))
+        else:
+            tweets.update_description(
+                "I'm feeling {} today".format(emotion))
+        text = generate_tweet_text(emotion)
+        tweets.post_tweet(text)
         time.sleep(1800)
 
 if __name__ == "__main__":
