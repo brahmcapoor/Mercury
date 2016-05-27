@@ -1,5 +1,4 @@
 import tweepy
-import twitter_confidential
 import os
 
 
