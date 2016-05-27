@@ -42,6 +42,8 @@ def main():
                     "I'm feeling {} today".format(emotion))
             else:
                 emotion = f.readline()
+                tweets.update_description(
+                    "I'm feeling {} today".format(emotion))
             text = generate_tweet_text(emotion)
             tweets.post_tweet(text)
         time.sleep(1800)
