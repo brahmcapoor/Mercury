@@ -23,18 +23,6 @@ def generate_tweet_text(mood):
     return sentence.encode('utf-8')
 
 
-def test_quotes():
-    for mood in moods.moods:
-        print(("{}: {}").format(mood, test_quote(mood)))
-
-
-def post_tweets(delay):
-    while(True):
-        for mood in moods.moodList():
-            tweets.postTweet(("{}: {}").format(mood, test_quote(mood)))
-        time.sleep(3600)
-
-
 def reconstruct_date(date_string):
     date = datetime.strptime(date_string, "%Y-%m-%d")
     return date
@@ -56,7 +44,7 @@ def main():
                 emotion = f.readline()
             text = generate_tweet_text(emotion)
             tweets.post_tweet(text)
-         time.sleep(1800)
+        time.sleep(1800)
 
 
 if __name__ == "__main__":
