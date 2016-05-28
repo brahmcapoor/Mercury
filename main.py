@@ -39,10 +39,10 @@ def main():
             olddate = date.today()
             emotion = moods.choose_random_mood()
             tweets.update_description(
-                "I'm feeling {} today".format(emotion))
+                "Mercurial means changing moods quickly and often. That sounds like fun. I'm feeling {} today".format(emotion))
         else:
             tweets.update_description(
-                "I'm feeling {} today".format(emotion))
+                "Mercurial means changing moods quickly and often. That sounds like fun. I'm feeling {} today".format(emotion))
         text = generate_tweet_text(emotion)
         tweets.post_tweet(text)
         time.sleep(1800)
