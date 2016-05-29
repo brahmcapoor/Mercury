@@ -1,5 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+"""
+The code we used to generate and work with the database of emotion txts
+"""
 
 
 def create_emotion_database(moods):
@@ -11,7 +14,7 @@ def create_emotion_database(moods):
 def create_emotion_txt(emotion):
     filename = ("emotions/{}.txt").format(emotion)
     with open(filename, 'wb') as f:
-        try:
+        try:  # so that we generate as many pages as there are on goodreads
             for i in range(1, 101):
                 print(i)
                 quotes_page = requests.get(
@@ -36,6 +39,6 @@ def create_emotion_txt(emotion):
                             # remove quote attributions
                             continue
                         f.write(line.strip().encode('utf-8'))
-                        f.write('\n'.encode('utf-8'))
+                        f.write('\n'.encode('utf-8'))  # separate quotes
         except:
             pass

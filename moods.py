@@ -1,6 +1,9 @@
 from random import choice
 import tweets
 
+"""
+Deals with various aspects of selecting moods
+"""
 moods = [
     'happy',
     'existential',

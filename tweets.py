@@ -1,6 +1,10 @@
 import tweepy
 import os
 
+"""
+deals with the tweepy API i.e. handling tweets and updating description
+TODO: deal with mentions
+"""
 
 auth = tweepy.OAuthHandler(
     os.environ['twitter_consumer_key'],
