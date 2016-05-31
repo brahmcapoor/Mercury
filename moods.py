@@ -10,7 +10,6 @@ moods = [
     'contemptuous',
     'sad',
     'innovative',
-    'suspicious',
     'disgusted',
     'surprised',
     'inspirational',
